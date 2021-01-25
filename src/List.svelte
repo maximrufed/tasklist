@@ -16,19 +16,22 @@
 	export let tasks;
 </script>
 
-<div class="frame">
-	<Container>
-		{#each tasks as task}
-			<Row>
-				<Col>
-					<Task {task} on:update={update} />
-				</Col>
-			</Row>
-		{/each}
-	</Container>
+<Container>
+	{#each tasks as task}
+		<Row>
+			<Col>
+				<Task {task} on:update={update} />
+			</Col>
+		</Row>
+	{/each}
 
-	<AddTask on:update={update} />
-</div>
+	<Row>
+		<Col>
+			<AddTask on:update={update} />
+		</Col>
+	</Row>
+</Container>
+
 <!--<style>
 	.frame {
 		border-width: 1px;

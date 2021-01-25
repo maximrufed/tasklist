@@ -19,9 +19,8 @@
 	}
 
 	// Dispatcher - end
-
 </script>
 
-<h1>List</h1>
+<h1><center>List</center></h1>
 
-<List tasks={ tasks } on:update={ update }/>
+<List {tasks} on:update={update} />
