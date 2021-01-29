@@ -1,4 +1,4 @@
 [[redirects]]
-from = "/go"
+from = "/go/*"
 to = "https://lit-earth-33078.herokuapp.com/"
 force = true
