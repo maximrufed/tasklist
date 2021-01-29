@@ -1,4 +1,4 @@
 [[redirects]]
 from = "/go/*"
-to = "https://lit-earth-33078.herokuapp.com/"
+to = "https://lit-earth-33078.herokuapp.com/:splat"
 force = true
