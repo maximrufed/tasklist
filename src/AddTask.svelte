@@ -46,25 +46,7 @@
 			</Col>
 			<Col xs="auto">
 				<Button on:click={onAdd}>add</Button>
-				<!-- <span on:click={onAdd}>
-				<Icon name="arrow-right" />
-			</span> -->
 			</Col>
 		</Row>
 	</Container>
 </Card>
-<!-- 
-<div class="frame">
-	<input bind:value={bufer} />
-</div>
-
-<div class="frame">
-	<button on:click={onAdd}>add</button>
-</div> -->
-<!--<style>
-	.frame {
-		/*border-width: 1px;*/
-		/*border-style: solid;*/
-		margin: 10px 10px 10px 10px;
-	}
-</style>-->

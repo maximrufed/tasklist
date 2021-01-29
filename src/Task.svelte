@@ -1,6 +1,4 @@
 <script>
-	// Dispatcher
-
 	import { createEventDispatcher } from "svelte";
 	import {
 		Card,
@@ -11,6 +9,16 @@
 		Row,
 		Col,
 	} from "sveltestrap";
+
+	const dispatch = createEventDispatcher();
+
+	function update() {
+		dispatch("update");
+	}
+
+	export let task;
+	let edited = 0;
+	let bufer = "";
 
 	$: {
 		fetch("/go/api/tasks/" + task.id.toString(), {
@@ -25,37 +33,11 @@
 		});
 	}
 
-	const dispatch = createEventDispatcher();
-
-	function update() {
-		dispatch("update");
-	}
-
-	// Dispatcher - end
-
-	export let task;
-
-	let edited = 0;
-	let bufer = "";
-
 	async function onDelete() {
 		await fetch("/go/api/tasks/" + task.id.toString(), {
 			method: "DELETE",
 		});
 		update();
-	}
-
-	async function upd() {
-		let a = await fetch("/go/api/tasks/" + task.id.toString(), {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				done: task.done,
-				text: task.text,
-			}),
-		});
 	}
 
 	function onEdit() {
@@ -65,12 +47,7 @@
 		} else {
 			edited = 0;
 			task.text = bufer;
-			// upd();
 		}
-	}
-
-	async function onCheck() {
-		// let a = await
 	}
 </script>
 
@@ -78,12 +55,10 @@
 	<Container>
 		<Row>
 			<Col xs="10">
-				<Input type="checkbox" bind:checked={task.done} inline />
+				<Input type="checkbox" bind:checked={task.done} />
 				{#if edited}
-					<Input id="taskText" bind:value={bufer} inline />
-					<!-- <textarea class="text" bind:value={bufer} /> -->
+					<Input id="taskText" bind:value={bufer} />
 				{:else}
-					<!-- <Input bind:value={bufer} disabled="true" /> -->
 					{task.text}
 				{/if}
 			</Col>
@@ -99,7 +74,4 @@
 			</Col>
 		</Row>
 	</Container>
-	<!-- {task.done} -->
-
-	<!-- <button on:click={onDelete}>x</button> -->
 </Card>

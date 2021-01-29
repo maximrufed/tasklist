@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/go"
+to = "https://lit-earth-33078.herokuapp.com/"
+force = true

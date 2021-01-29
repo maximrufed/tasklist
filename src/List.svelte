@@ -20,7 +20,7 @@
 	{#each tasks as task}
 		<Row>
 			<Col>
-				<Task {task} on:update={update} />
+				<Task bind:task on:update={update} />
 			</Col>
 		</Row>
 	{/each}
